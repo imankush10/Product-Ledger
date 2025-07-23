@@ -665,14 +665,13 @@ export function LedgerTable({ customerId, userPermissions }: LedgerTableProps) {
         </div>
         {showCreditSettings && (
           <div className="mt-2">
-            <InlineCreditSettings
-              customerId={customerId}
-              initialSettings={creditSettings}
-              onSettingsUpdate={(newSettings: CreditSettings) => {
-                setCreditSettings(newSettings)
-                fetchData() // Refresh data with new settings
-              }}
-            />
+           <InlineCreditSettings
+            customerId={customerId}
+            initialSettings={creditSettings}
+            onSettingsUpdate={() => {
+              fetchData() // Refresh all data with the newly saved settings
+            }}
+          />
           </div>
         )}
       </div>
